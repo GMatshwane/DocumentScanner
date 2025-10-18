@@ -3,6 +3,13 @@
   "main": "./src/main.ts",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "tsc": "tsc -p tsconfig.json --noEmit",
+    "test": "npx karma start karma.conf.js --single-run",
+    "build:android": "npx ns build android --env.production --no-hmr",
+    "build:ios": "npx ns build ios --env.production --no-hmr",
+    "ci": "npm run tsc && npm run test"
+  },
   "dependencies": {
     "@angular/animations": "~20.0.0",
     "@angular/common": "~20.0.0",
