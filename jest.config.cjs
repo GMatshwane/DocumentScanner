@@ -11,11 +11,22 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/**/*.d.ts',
-    '!src/main.ts',
-    '!src/polyfills.ts'
+    'src/lib/**/*.ts'
   ],
   coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov', 'html']
+  coverageReporters: ['text', 'lcov', 'html'],
+  coverageThreshold: {
+    global: {
+      branches: 30,
+      functions: 30,
+      lines: 30,
+      statements: 30
+    },
+    './src/lib/': {
+      branches: 90,
+      functions: 100,
+      lines: 100,
+      statements: 100
+    }
+  }
 };
